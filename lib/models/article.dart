@@ -21,9 +21,9 @@ class Article {
     return Article(
       title: json['title'] as String,
       user: User.fromJson(json['user']),
-      likesCount: json['likesCount'] as int,
+      likesCount: json['likes_count'] as int,
       tags: List<String>.from(json['tags'].map((tag) => tag['name'])),
-      createdAt: DateTime.parse(json['createdAt'] as String),
+      createdAt: DateTime.parse(json['created_at'] as String),
       url: json['url'] as String,
     );
   }

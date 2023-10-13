@@ -3,22 +3,52 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:quita_searher_app/models/article.dart';
+import 'package:quita_searher_app/widgets/article_container.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
 
   @override
-  State<SearchScreen> createState() => _SearchScreen();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
 
-class _SearchScreen extends State<SearchScreen> {
+class _SearchScreenState extends State<SearchScreen> {
+  List<Article> articles = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Qiita Search'),
       ),
-      body: Container(),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 36,
+              vertical: 12,
+            ),
+            child: TextField(
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
+              decoration: InputDecoration(
+                hintText: '検索ワードを入力して下さい',
+              ),
+              onSubmitted: (String value) async {
+                final result = await searchQiita(value);
+                setState(() => articles = result);
+              },
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              children: articles.map(
+                (article) => ArticleContainer(article: article)).toList(),
+            )
+          ),
+        ],
+      ),
     );
   }
 
