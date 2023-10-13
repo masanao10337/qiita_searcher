@@ -14,6 +14,7 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   List<Article> articles = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
