@@ -29,11 +29,11 @@ class _SearchScreenState extends State<SearchScreen> {
               vertical: 12,
             ),
             child: TextField(
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 color: Colors.black,
               ),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: '検索ワードを入力して下さい',
               ),
               onSubmitted: (String value) async {

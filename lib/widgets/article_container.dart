@@ -72,7 +72,7 @@ class ArticleContainer extends StatelessWidget {
                       ),
                       Text(
                         article.likesCount.toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 12,
                         ),
@@ -90,7 +90,7 @@ class ArticleContainer extends StatelessWidget {
                       const SizedBox(height: 4),
                       Text(
                         article.user.id,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 12,
                         ),

@@ -24,7 +24,7 @@ class MainApp extends StatelessWidget {
               bodyColor: Colors.white,
             ),
       ),
-      home: SearchScreen(),
+      home: const SearchScreen(),
     );
   }
 }
